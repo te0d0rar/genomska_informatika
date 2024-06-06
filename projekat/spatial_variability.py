@@ -80,7 +80,6 @@ def compute_neighbors_and_weights(coordinates, neighbors=77):
 
     distances, indices = knn.kneighbors(coordinates)
 
-    # Exclude the first neighbor (the node itself)
     distances[:, 0] = distances[:, 1]
 
     weights = 1 / (distances + 1e-8)  # Avoid division by zero
